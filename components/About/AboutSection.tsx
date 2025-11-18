@@ -66,7 +66,7 @@ export default function AboutSection() {
 
             <p className="text-lg text-navy-600 leading-relaxed">
               Our approach combines artistic vision with genuine emotion, creating timeless
-              memories that you'll treasure forever. Every wedding is unique, and we strive
+              memories that you&apos;ll treasure forever. Every wedding is unique, and we strive
               to capture the essence of your special day with elegance and creativity.
             </p>
 
@@ -86,7 +86,7 @@ export default function AboutSection() {
               whileTap={{ scale: 0.95 }}
               className="inline-block px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 mt-8"
             >
-              Let's Create Something Beautiful
+              Let&apos;s Create Something Beautiful
             </motion.a>
           </motion.div>
         </div>

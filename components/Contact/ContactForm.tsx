@@ -91,7 +91,7 @@ export default function ContactForm() {
           Thank You!
         </h3>
         <p className="text-xl text-navy-600 mb-8">
-          We've received your inquiry and will get back to you within 24 hours.
+        We&apos;ve received your inquiry and will get back to you within 24 hours.
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -121,7 +121,7 @@ export default function ContactForm() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-navy-900 mb-4">
-            Let's Create Magic Together
+          Let&apos;s Create Magic Together
           </h2>
           <p className="text-xl text-navy-600">
             Get in touch to discuss your special day
