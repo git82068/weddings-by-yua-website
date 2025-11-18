@@ -19,6 +19,9 @@ export default function Button({
   onAnimationStart,
   onAnimationEnd,
   onAnimationIteration,
+  onDragStart,
+  onDrag,
+  onDragEnd,
   ...props
 }: ButtonProps) {
   const baseClasses = 'relative font-semibold rounded-full transition-all duration-300 overflow-hidden group';
