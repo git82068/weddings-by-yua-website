@@ -32,14 +32,49 @@ export default function Button({
     lg: 'px-8 py-4 text-lg',
   };
 
-  const MagneticWrapper = magnetic ? motion.div : motion.button;
+  // If magnetic, wrap in a button with motion.div inside
+  if (magnetic) {
+    return (
+      <motion.button
+        {...props}
+        className="relative"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <motion.div
+          drag
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragElastic={0.2}
+          whileHover={{ scale: 1.05 }}
+          className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+        >
+          {/* Ripple Effect Background */}
+          <motion.div
+            className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            whileHover={{ scale: 1.5 }}
+          />
+          
+          {/* Content */}
+          <span className="relative z-10 flex items-center justify-center gap-2">
+            {children}
+          </span>
 
-  const buttonContent = (
-    <MagneticWrapper
+          {/* Gradient Overlay on Hover */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+          />
+        </motion.div>
+      </motion.button>
+    );
+  }
+
+  // Regular button (non-magnetic)
+  return (
+    <motion.button
+      {...props}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      {...(magnetic ? {} : props)}
     >
       {/* Ripple Effect Background */}
       <motion.div
@@ -56,29 +91,6 @@ export default function Button({
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
       />
-    </MagneticWrapper>
+    </motion.button>
   );
-
-  if (magnetic) {
-    return (
-      <motion.button
-        {...props}
-        className="relative"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <motion.div
-          drag
-          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          dragElastic={0.2}
-          whileHover={{ scale: 1.05 }}
-        >
-          {buttonContent}
-        </motion.div>
-      </motion.button>
-    );
-  }
-
-  return buttonContent;
 }
-
