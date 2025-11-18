@@ -16,6 +16,9 @@ export default function Button({
   size = 'md',
   magnetic = false,
   className = '',
+  onAnimationStart,
+  onAnimationEnd,
+  onAnimationIteration,
   ...props
 }: ButtonProps) {
   const baseClasses = 'relative font-semibold rounded-full transition-all duration-300 overflow-hidden group';
